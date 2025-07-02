@@ -9,6 +9,8 @@ import Training from './pages/Training';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
 import News from './pages/News';
+import InscriptionFormation from './pages/InscriptionFormation';
+import FormationDetail from './pages/FormationDetail';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/equipe" element={<Team />} />
             <Route path="/actualites" element={<News />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/inscription-formation" element={<InscriptionFormation />} />
+            <Route path="/formation/:slug" element={<FormationDetail />} />
           </Routes>
         </main>
         <Footer />

@@ -41,13 +41,28 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-iai-blue to-iai-red text-white">
+        {/* Fond animé SVG particules */}
+        <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <circle cx="200" cy="100" r="60" fill="#ffffff22">
+            <animate attributeName="cy" values="100;180;100" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="800" cy="220" r="40" fill="#ffffff33">
+            <animate attributeName="cy" values="220;120;220" dur="8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="1200" cy="80" r="30" fill="#ffffff22">
+            <animate attributeName="cy" values="80;160;80" dur="7s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="400" cy="250" r="20" fill="#ffffff33">
+            <animate attributeName="cy" values="250;180;250" dur="5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               À Propos d'IAI-COMPÉTENCES
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
               Une société innovante spécialisée dans l'ingénierie informatique, 
               le conseil en systèmes d'information et la formation professionnelle
             </p>
@@ -78,13 +93,13 @@ const About = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-6 rounded-2xl text-center">
-                <Calendar className="mx-auto mb-4 text-blue-600" size={40} />
+              <div className="bg-iai-blue/10 p-6 rounded-2xl text-center">
+                <Calendar className="mx-auto mb-4 text-iai-blue" size={40} />
                 <div className="text-2xl font-bold text-gray-900">2025</div>
                 <div className="text-gray-600">Année de création</div>
               </div>
-              <div className="bg-purple-50 p-6 rounded-2xl text-center">
-                <MapPin className="mx-auto mb-4 text-purple-600" size={40} />
+              <div className="bg-iai-red/10 p-6 rounded-2xl text-center">
+                <MapPin className="mx-auto mb-4 text-iai-red" size={40} />
                 <div className="text-2xl font-bold text-gray-900">Dakar</div>
                 <div className="text-gray-600">Siège social</div>
               </div>
@@ -122,15 +137,15 @@ const About = () => {
               </p>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-iai-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   Accompagner la transformation digitale des entreprises
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-iai-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   Former et certifier les professionnels IT
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-iai-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   Développer des solutions innovantes et sur mesure
                 </li>
               </ul>
@@ -145,15 +160,15 @@ const About = () => {
               </p>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-iai-red rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   Leadership sur le marché sénégalais et sous-régional
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-iai-red rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   Excellence reconnue dans nos domaines d'expertise
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-iai-red rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   Impact positif sur le développement numérique africain
                 </li>
               </ul>
@@ -180,7 +195,7 @@ const About = () => {
                 key={index}
                 className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 bg-gradient-to-br from-iai-blue to-iai-red rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <value.icon className="text-white" size={40} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
@@ -207,9 +222,9 @@ const About = () => {
             {milestones.map((milestone, index) => (
               <div key={index} className="flex items-start">
                 <div className="flex-shrink-0 w-24 text-right mr-8">
-                  <div className="text-2xl font-bold text-blue-600">{milestone.year}</div>
+                  <div className="text-2xl font-bold text-iai-blue">{milestone.year}</div>
                 </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-blue-600 rounded-full mt-2 mr-8"></div>
+                <div className="flex-shrink-0 w-4 h-4 bg-iai-blue rounded-full mt-2 mr-8"></div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{milestone.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{milestone.description}</p>

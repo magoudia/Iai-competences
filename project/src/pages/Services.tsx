@@ -1,10 +1,18 @@
 import React from 'react';
 import { Code, Users, Brain, Shield, Database, Smartphone, Cloud, Settings } from 'lucide-react';
+import devImg from '../assets/dev.jpg';
+import iaImg from '../assets/ia.jpg';
+import conseilImg from '../assets/conseil.jpg';
+import securiteImg from '../assets/securite.jpeg';
+import dataImg from '../assets/data.jpeg';
+import cloudImg from '../assets/cloud.jpeg';
+import digitalImg from '../assets/digital.jpeg';
+import supportImg from '../assets/support.jpeg';
 
 const Services = () => {
   const services = [
     {
-      icon: Code,
+      image: devImg,
       title: "Développement de Solutions Informatiques",
       description: "Conception et développement d'applications web, mobiles et logicielles sur mesure",
       features: [
@@ -16,7 +24,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Brain,
+      image: iaImg,
       title: "Intelligence Artificielle & Big Data",
       description: "Solutions IA avancées et analyse de données pour optimiser vos processus",
       features: [
@@ -28,7 +36,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Users,
+      image: conseilImg,
       title: "Conseil en Systèmes d'Information",
       description: "Expertise et accompagnement pour votre transformation digitale",
       features: [
@@ -40,7 +48,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Shield,
+      image: securiteImg,
       title: "Audit & Sécurité",
       description: "Évaluation et sécurisation de vos infrastructures informatiques",
       features: [
@@ -52,7 +60,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Database,
+      image: dataImg,
       title: "Gestion de Données",
       description: "Optimisation et gestion de vos bases de données et entrepôts de données",
       features: [
@@ -64,7 +72,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Cloud,
+      image: cloudImg,
       title: "Solutions Cloud",
       description: "Migration et optimisation de vos infrastructures vers le cloud",
       features: [
@@ -76,7 +84,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Smartphone,
+      image: digitalImg,
       title: "Transformation Digitale",
       description: "Accompagnement complet dans votre transition numérique",
       features: [
@@ -88,7 +96,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Settings,
+      image: supportImg,
       title: "Maintenance & Support",
       description: "Support technique et maintenance de vos systèmes informatiques",
       features: [
@@ -115,8 +123,23 @@ const Services = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-iai-blue to-iai-red text-white">
+        {/* Fond animé SVG particules */}
+        <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <circle cx="200" cy="100" r="60" fill="#ffffff22">
+            <animate attributeName="cy" values="100;180;100" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="800" cy="220" r="40" fill="#ffffff33">
+            <animate attributeName="cy" values="220;120;220" dur="8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="1200" cy="80" r="30" fill="#ffffff22">
+            <animate attributeName="cy" values="80;160;80" dur="7s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="400" cy="250" r="20" fill="#ffffff33">
+            <animate attributeName="cy" values="250;180;250" dur="5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Nos Services
@@ -147,15 +170,15 @@ const Services = () => {
                 key={index}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon className="text-white" size={32} />
+                <div className="w-24 h-24 bg-gradient-to-br from-iai-blue to-iai-red rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform overflow-hidden hover:zoom-effect animate-fade-in-up">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-iai-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       {feature}
                     </li>
                   ))}
@@ -182,7 +205,7 @@ const Services = () => {
             {sectors.map((sector, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="bg-white border border-gray-200 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-lg font-semibold text-gray-900">{sector}</div>
               </div>
@@ -227,7 +250,7 @@ const Services = () => {
               }
             ].map((phase, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-iai-blue to-iai-red rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-white font-bold text-lg">{phase.step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{phase.title}</h3>
@@ -239,7 +262,7 @@ const Services = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-iai-blue to-iai-red">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Discutons de votre projet
@@ -250,7 +273,7 @@ const Services = () => {
           </p>
           <a
             href="/contact"
-            className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-block"
+            className="bg-white text-iai-blue px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-block"
           >
             Demander un devis
           </a>

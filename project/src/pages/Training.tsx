@@ -1,9 +1,11 @@
 import React from 'react';
 import { BookOpen, Award, Users, Clock, CheckCircle, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Training = () => {
   const programs = [
     {
+      slug: 'developpement-web-full-stack',
       title: "Développement Web Full-Stack",
       duration: "6 mois",
       level: "Débutant à Avancé",
@@ -19,6 +21,7 @@ const Training = () => {
       price: "750 000 FCFA"
     },
     {
+      slug: 'intelligence-artificielle-machine-learning',
       title: "Intelligence Artificielle & Machine Learning",
       duration: "4 mois",
       level: "Intermédiaire",
@@ -34,6 +37,7 @@ const Training = () => {
       price: "650 000 FCFA"
     },
     {
+      slug: 'cybersecurite-audit',
       title: "Cybersécurité et Audit",
       duration: "3 mois",
       level: "Intermédiaire à Avancé",
@@ -49,6 +53,7 @@ const Training = () => {
       price: "550 000 FCFA"
     },
     {
+      slug: 'administration-systemes-reseaux',
       title: "Administration Systèmes et Réseaux",
       duration: "4 mois",
       level: "Débutant à Intermédiaire",
@@ -64,6 +69,7 @@ const Training = () => {
       price: "600 000 FCFA"
     },
     {
+      slug: 'gestion-projet-it',
       title: "Gestion de Projet IT",
       duration: "2 mois",
       level: "Tous niveaux",
@@ -79,6 +85,7 @@ const Training = () => {
       price: "400 000 FCFA"
     },
     {
+      slug: 'cloud-computing-aws-azure',
       title: "Cloud Computing (AWS/Azure)",
       duration: "3 mois",
       level: "Intermédiaire",
@@ -138,8 +145,23 @@ const Training = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-iai-blue to-iai-red text-white">
+        {/* Fond animé SVG particules */}
+        <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <circle cx="200" cy="100" r="60" fill="#ffffff22">
+            <animate attributeName="cy" values="100;180;100" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="800" cy="220" r="40" fill="#ffffff33">
+            <animate attributeName="cy" values="220;120;220" dur="8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="1200" cy="80" r="30" fill="#ffffff22">
+            <animate attributeName="cy" values="80;160;80" dur="7s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="400" cy="250" r="20" fill="#ffffff33">
+            <animate attributeName="cy" values="250;180;250" dur="5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Formations IT
@@ -170,7 +192,7 @@ const Training = () => {
                 key={index}
                 className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 bg-gradient-to-br from-iai-blue to-iai-red rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <advantage.icon className="text-white" size={40} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{advantage.title}</h3>
@@ -232,9 +254,20 @@ const Training = () => {
                   </ul>
                 </div>
 
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
-                  S'inscrire
-                </button>
+                <div className="mt-6 flex flex-col gap-2 items-center">
+                  <Link
+                    to={`/inscription-formation?formation=${encodeURIComponent(program.title)}`}
+                    className="inline-block bg-gradient-to-r from-iai-blue to-iai-red text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
+                    S'inscrire
+                  </Link>
+                  <Link
+                    to={`/formation/${program.slug}`}
+                    className="inline-block border border-iai-blue text-iai-blue px-6 py-3 rounded-full font-semibold hover:bg-iai-blue hover:text-white transition-all duration-300"
+                  >
+                    En savoir plus
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -278,28 +311,57 @@ const Training = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-iai-blue to-iai-red">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Prêt à booster votre carrière ?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Rejoignez nos formations et développez les compétences les plus demandées 
             sur le marché du travail.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              className="bg-white text-iai-blue px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               Demander des informations
             </a>
             <a
               href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-iai-blue transition-all duration-300"
             >
               Télécharger le catalogue
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-iai-blue mb-8 text-center">FAQ - Questions fréquentes</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-lg text-iai-blue mb-2">Comment s'inscrire à une formation ?</h3>
+              <p className="text-gray-700">Cliquez sur le bouton "S'inscrire" de la formation souhaitée et remplissez le formulaire dédié. Vous recevrez une confirmation par email.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-iai-blue mb-2">Peut-on financer sa formation ?</h3>
+              <p className="text-gray-700">Oui, plusieurs solutions de financement sont possibles. Contactez-nous pour étudier votre situation et les options disponibles.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-iai-blue mb-2">Les formations sont-elles certifiantes ?</h3>
+              <p className="text-gray-700">Toutes nos formations délivrent une attestation ou un certificat reconnu dans le secteur IT.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-iai-blue mb-2">Les formations sont-elles accessibles à distance ?</h3>
+              <p className="text-gray-700">La plupart de nos programmes sont disponibles en présentiel, à distance ou en format hybride.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-iai-blue mb-2">Quels sont les prérequis ?</h3>
+              <p className="text-gray-700">Les prérequis varient selon la formation. Consultez la fiche détaillée de chaque programme pour plus d'informations.</p>
+            </div>
           </div>
         </div>
       </section>

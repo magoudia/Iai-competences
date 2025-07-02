@@ -78,13 +78,28 @@ const Team = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-iai-blue to-iai-red text-white">
+        {/* Fond animé SVG particules */}
+        <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <circle cx="200" cy="100" r="60" fill="#ffffff22">
+            <animate attributeName="cy" values="100;180;100" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="800" cy="220" r="40" fill="#ffffff33">
+            <animate attributeName="cy" values="220;120;220" dur="8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="1200" cy="80" r="30" fill="#ffffff22">
+            <animate attributeName="cy" values="80;160;80" dur="7s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="400" cy="250" r="20" fill="#ffffff33">
+            <animate attributeName="cy" values="250;180;250" dur="5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Notre Équipe
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
               Une équipe d'experts passionnés et certifiés, formés à l'Institut Africain 
               d'Informatique, pour vous accompagner dans vos projets les plus ambitieux
             </p>
@@ -98,7 +113,7 @@ const Team = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-br from-iai-blue to-iai-red rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <stat.icon className="text-white" size={32} />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
@@ -133,12 +148,12 @@ const Team = () => {
                     alt={member.name}
                     className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-110 transition-transform"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-iai-blue/20 to-iai-red/20 rounded-full"></div>
                 </div>
                 
                 <div className="text-center mb-4">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
+                  <p className="text-iai-blue font-semibold mb-3">{member.role}</p>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
                 </div>
 
@@ -148,7 +163,7 @@ const Team = () => {
                     {member.specialties.map((specialty, specialtyIndex) => (
                       <span
                         key={specialtyIndex}
-                        className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                        className="bg-iai-blue/10 text-iai-blue px-2 py-1 rounded-full text-xs"
                       >
                         {specialty}
                       </span>
@@ -159,13 +174,13 @@ const Team = () => {
                 <div className="flex justify-center space-x-3">
                   <a
                     href={`mailto:${member.email}`}
-                    className="text-gray-400 hover:text-blue-600 transition-colors"
+                    className="text-gray-400 hover:text-iai-blue transition-colors"
                   >
                     <Mail size={20} />
                   </a>
                   <a
                     href={member.linkedin}
-                    className="text-gray-400 hover:text-blue-600 transition-colors"
+                    className="text-gray-400 hover:text-iai-blue transition-colors"
                   >
                     <Linkedin size={20} />
                   </a>
@@ -195,13 +210,13 @@ const Team = () => {
                 className="bg-gray-50 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-iai-blue to-iai-red rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-white font-bold text-xl">
                       {expert.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{expert.name}</h3>
-                  <p className="text-blue-600 font-semibold text-sm">{expert.role}</p>
+                  <p className="text-iai-blue font-semibold text-sm">{expert.role}</p>
                 </div>
 
                 <div className="mb-4">
@@ -210,7 +225,7 @@ const Team = () => {
                     {expert.specialties.map((specialty, specialtyIndex) => (
                       <span
                         key={specialtyIndex}
-                        className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                        className="bg-iai-blue/10 text-iai-blue px-2 py-1 rounded-full text-xs"
                       >
                         {specialty}
                       </span>
@@ -275,18 +290,18 @@ const Team = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-iai-blue to-iai-red">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Rejoignez Notre Équipe
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-iai-blue mb-8 max-w-2xl mx-auto">
             Vous êtes un expert IT passionné ? Nous recherchons constamment 
             des talents pour renforcer notre équipe.
           </p>
           <a
             href="/contact"
-            className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-block"
+            className="bg-white text-iai-blue px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-block"
           >
             Postuler
           </a>

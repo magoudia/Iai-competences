@@ -84,13 +84,28 @@ const News = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-iai-blue to-iai-red text-white">
+        {/* Fond animé SVG particules */}
+        <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <circle cx="200" cy="100" r="60" fill="#ffffff22">
+            <animate attributeName="cy" values="100;180;100" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="800" cy="220" r="40" fill="#ffffff33">
+            <animate attributeName="cy" values="220;120;220" dur="8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="1200" cy="80" r="30" fill="#ffffff22">
+            <animate attributeName="cy" values="80;160;80" dur="7s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="400" cy="250" r="20" fill="#ffffff33">
+            <animate attributeName="cy" values="250;180;250" dur="5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Actualités & Insights
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
               Restez informé des dernières tendances technologiques et découvrez 
               nos analyses sur l'évolution du secteur IT en Afrique
             </p>
@@ -108,7 +123,7 @@ const News = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-iai-blue to-iai-red text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -132,7 +147,7 @@ const News = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-gradient-to-r from-iai-blue to-iai-red text-white px-3 py-1 rounded-full text-sm font-medium">
                       Article vedette
                     </span>
                   </div>
@@ -147,7 +162,7 @@ const News = () => {
                       <User className="mr-1" size={16} />
                       {filteredArticles[0].author}
                     </span>
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                    <span className="bg-iai-blue/10 text-iai-blue px-2 py-1 rounded-full text-xs">
                       {filteredArticles[0].readTime}
                     </span>
                   </div>
@@ -157,7 +172,7 @@ const News = () => {
                   <p className="text-gray-600 leading-relaxed mb-6">
                     {filteredArticles[0].excerpt}
                   </p>
-                  <button className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors group">
+                  <button className="inline-flex items-center text-iai-blue font-semibold hover:text-iai-red transition-colors group">
                     Lire l'article
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                   </button>
@@ -196,7 +211,7 @@ const News = () => {
                       <Calendar className="mr-1" size={14} />
                       {article.date}
                     </span>
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                    <span className="bg-iai-blue/10 text-iai-blue px-2 py-1 rounded-full text-xs">
                       {article.readTime}
                     </span>
                   </div>
@@ -214,7 +229,7 @@ const News = () => {
                       <User className="mr-1" size={14} />
                       {article.author}
                     </span>
-                    <button className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors flex items-center group">
+                    <button className="text-iai-blue font-semibold text-sm hover:text-iai-red transition-colors flex items-center group">
                       Lire plus
                       <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={16} />
                     </button>
@@ -227,12 +242,12 @@ const News = () => {
       </section>
 
       {/* Newsletter Subscription */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-iai-blue to-iai-red">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Restez informé
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-iai-blue mb-8">
             Abonnez-vous à notre newsletter pour recevoir nos derniers articles 
             et analyses directement dans votre boîte mail.
           </p>
@@ -242,7 +257,7 @@ const News = () => {
               placeholder="Votre adresse email"
               className="flex-1 px-6 py-3 rounded-full border-0 focus:ring-2 focus:ring-white/50 focus:outline-none"
             />
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+            <button className="bg-white text-iai-blue px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
               S'abonner
             </button>
           </div>
