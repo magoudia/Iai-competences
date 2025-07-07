@@ -51,7 +51,7 @@ const Home = () => {
               </span>
               <br />
               <span className="text-3xl md:text-4xl lg:text-5xl">
-                Votre Partenaire Digital
+                Une solution pour tous
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
