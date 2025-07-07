@@ -1,24 +1,26 @@
 import React from 'react';
 import { Linkedin, Mail, Award, Users, Globe } from 'lucide-react';
+import adamaImg from '../assets/adama.jpg';
+import abdouImg from '../assets/abdou.jpg';
 
 const Team = () => {
   const leadership = [
     {
       name: "Adama Aly DIAO",
-      role: "Directeur Général",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+      role: "Directeur Général de l'IAI-COMPÉTENCES SAS",
+      image: adamaImg,
       bio: "Expert en systèmes d'information avec plus de 15 ans d'expérience dans le secteur IT africain.",
       specialties: ["Stratégie IT", "Transformation Digitale", "Management"],
-      email: "adama.diao@iai-competences.sn",
+      email: "aadiao@iaicompetences.com",
       linkedin: "#"
     },
     {
-      name: "Addou DIAW",
-      role: "Directeur Technique",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg",
+      name: "Abdou DIAW",
+      role: "Président du Conseil de Surveillance",
+      image: abdouImg,
       bio: "Architecte logiciel senior spécialisé dans les solutions cloud et l'intelligence artificielle.",
       specialties: ["Architecture Cloud", "IA/ML", "DevOps"],
-      email: "addou.diaw@iai-competences.sn",
+      email: "adiaw@iaicompetences.com",
       linkedin: "#"
     },
     {
@@ -27,16 +29,16 @@ const Team = () => {
       image: "https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg",
       bio: "Formateur certifié avec une expertise reconnue dans le développement des compétences IT.",
       specialties: ["Formation IT", "Certification", "Pédagogie"],
-      email: "ibrahima.guisse@iai-competences.sn",
+      email: "ikguisse@iaicompetences.com",
       linkedin: "#"
     },
     {
       name: "Alphonse Diombo THIAKANE",
-      role: "Directeur Commercial",
+      role: "Directeur Technique",
       image: "https://images.pexels.com/photos/2182973/pexels-photo-2182973.jpeg",
       bio: "Expert en développement commercial avec une connaissance approfondie du marché africain.",
       specialties: ["Développement Commercial", "Partenariats", "Stratégie"],
-      email: "alphonse.thiakane@iai-competences.sn",
+      email: "athiakane@iaicompetences.com",
       linkedin: "#"
     }
   ];
