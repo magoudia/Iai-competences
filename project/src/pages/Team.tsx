@@ -71,10 +71,10 @@ const Team = () => {
   ];
 
   const stats = [
-    { icon: Users, number: "20+", label: "Experts certifiés" },
+    { icon: Users, number: "40+", label: "Experts certifiés" },
     { icon: Award, number: "50+", label: "Certifications" },
-    { icon: Globe, number: "15+", label: "Pays d'intervention" },
-    { icon: Users, number: "100+", label: "Projets réalisés" }
+    { icon: Globe, number: "3+", label: "Pays d'intervention" },
+    { icon: Users, number: "2+", label: "Projets réalisés" }
   ];
 
   return (

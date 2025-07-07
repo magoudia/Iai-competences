@@ -112,16 +112,18 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <div
+              <Link
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
+                to={`/services?service=${encodeURIComponent(service.title)}`}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group block"
+                style={{ textDecoration: 'none' }}
               >
                 <div className="w-24 h-24 bg-gradient-to-br from-iai-blue to-iai-red rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform overflow-hidden hover:zoom-effect animate-fade-in-up">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{service.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
