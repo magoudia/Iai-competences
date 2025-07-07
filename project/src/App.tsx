@@ -12,6 +12,7 @@ import News from './pages/News';
 import InscriptionFormation from './pages/InscriptionFormation';
 import FormationDetail from './pages/FormationDetail';
 import Devis from './pages/Devis';
+import ServiceDetail from './pages/ServiceDetail';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/inscription-formation" element={<InscriptionFormation />} />
             <Route path="/formation/:slug" element={<FormationDetail />} />
+            <Route path="/service/:slug" element={<ServiceDetail />} />
             <Route path="/devis" element={<Devis />} />
           </Routes>
         </main>

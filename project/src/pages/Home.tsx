@@ -11,22 +11,26 @@ const Home = () => {
     {
       image: devImg,
       title: "Développement Logiciel",
-      description: "Solutions sur mesure et applications innovantes"
+      description: "Solutions sur mesure et applications innovantes",
+      slug: "developpement-logiciel"
     },
     {
       image: formationImg,
       title: "Formation IT",
-      description: "Programmes de formation certifiants et coaching"
+      description: "Programmes de formation certifiants et coaching",
+      slug: "formation-it"
     },
     {
       image: conseilImg,
       title: "Conseil en SI",
-      description: "Expertise en systèmes d'information et transformation digitale"
+      description: "Expertise en systèmes d'information et transformation digitale",
+      slug: "conseil-si"
     },
     {
       image: iaImg,
       title: "Intelligence Artificielle",
-      description: "Solutions IA et Big Data pour votre entreprise"
+      description: "Solutions IA et Big Data pour votre entreprise",
+      slug: "intelligence-artificielle"
     }
   ];
 
@@ -114,7 +118,7 @@ const Home = () => {
             {services.map((service, index) => (
               <Link
                 key={index}
-                to={`/services?service=${encodeURIComponent(service.title)}`}
+                to={`/service/${service.slug}`}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group block"
                 style={{ textDecoration: 'none' }}
               >
