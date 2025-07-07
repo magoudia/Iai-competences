@@ -12,11 +12,12 @@ const InscriptionFormation = () => {
     email: '',
     phone: '',
     formation,
+    mode: '',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -30,6 +31,7 @@ const InscriptionFormation = () => {
         from_email: formData.email,
         phone: formData.phone,
         formation: formData.formation,
+        mode: formData.mode,
         message: formData.message,
       },
       '-59ZpLNiQF9ncW5M8'
@@ -37,7 +39,7 @@ const InscriptionFormation = () => {
     .then(() => {
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 3000);
-      setFormData({ name: '', email: '', phone: '', formation: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', formation: '', mode: '', message: '' });
     })
     .catch(() => {
       alert("Erreur lors de l'envoi de l'inscription. Veuillez réessayer.");
@@ -67,6 +69,14 @@ const InscriptionFormation = () => {
             <div className="mb-4">
               <label className="block text-gray-700 mb-2">Formation *</label>
               <input type="text" name="formation" value={formData.formation} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iai-blue focus:border-transparent transition-all" />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 mb-2">Mode de formation *</label>
+              <select name="mode" value={formData.mode} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iai-blue focus:border-transparent transition-all">
+                <option value="">Choisissez un mode</option>
+                <option value="En ligne">En ligne</option>
+                <option value="Présentiel">Présentiel</option>
+              </select>
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 mb-2">Message</label>
