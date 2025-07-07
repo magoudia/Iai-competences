@@ -61,7 +61,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["iai-competences@gmail.com"]
+      details: ["aadiao@iaicompetence.com"]
     },
     {
       icon: Clock,
