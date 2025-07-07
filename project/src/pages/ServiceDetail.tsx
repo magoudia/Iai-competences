@@ -48,6 +48,24 @@ const SERVICES = [
       "Coaching personnalisé",
       "Formateurs experts",
       "Parcours adaptés à tous niveaux"
+    ],
+    advantages: [
+      "Formateurs certifiés et expérimentés",
+      "Méthodes pédagogiques innovantes",
+      "Accompagnement individuel",
+      "Accès à des ressources exclusives"
+    ],
+    testimonials: [
+      {
+        name: "Fatou Ndiaye",
+        role: "Développeuse Web, Dakar",
+        content: "Grâce à la formation, j'ai pu évoluer rapidement dans ma carrière et décrocher un poste de rêve."
+      },
+      {
+        name: "Mamadou Ba",
+        role: "Administrateur Systèmes",
+        content: "Des contenus à jour, des formateurs à l'écoute et un vrai suivi après la formation."
+      }
     ]
   },
   {
@@ -61,6 +79,24 @@ const SERVICES = [
       "Stratégie digitale",
       "Gestion de projet IT",
       "Accompagnement au changement"
+    ],
+    advantages: [
+      "Diagnostic précis et recommandations sur-mesure",
+      "Accompagnement du changement",
+      "Expertise sectorielle reconnue",
+      "Confidentialité et éthique professionnelle"
+    ],
+    testimonials: [
+      {
+        name: "Awa Sarr",
+        role: "Directrice Générale, PME Sénégal",
+        content: "Le conseil reçu a permis à notre entreprise de franchir un cap dans sa digitalisation."
+      },
+      {
+        name: "Ibrahima Faye",
+        role: "Chef de projet IT",
+        content: "Une équipe très compétente, des solutions adaptées à nos besoins et un vrai suivi."
+      }
     ]
   },
   {
@@ -74,6 +110,24 @@ const SERVICES = [
       "Traitement du langage naturel",
       "Vision par ordinateur",
       "Tableaux de bord analytiques"
+    ],
+    advantages: [
+      "Expertise en IA de pointe",
+      "Projets sur-mesure et innovants",
+      "Accompagnement de A à Z",
+      "Confidentialité et sécurité des données"
+    ],
+    testimonials: [
+      {
+        name: "Seynabou Diop",
+        role: "Data Scientist, Startup IA",
+        content: "L'intégration de l'IA a transformé notre façon de travailler et d'analyser les données."
+      },
+      {
+        name: "Cheikh Ndiaye",
+        role: "Responsable Innovation",
+        content: "Des solutions IA concrètes et un accompagnement très professionnel."
+      }
     ]
   }
 ];
