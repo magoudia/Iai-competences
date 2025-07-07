@@ -24,18 +24,6 @@ const SERVICES = [
       "Accompagnement personnalisé",
       "Support réactif et disponible",
       "Solutions évolutives et sécurisées"
-    ],
-    testimonials: [
-      {
-        name: "Aminata Diallo",
-        role: "Responsable IT, TechCorp",
-        content: "Le service a dépassé nos attentes, l'équipe a été très professionnelle et à l'écoute de nos besoins."
-      },
-      {
-        name: "Moussa Kane",
-        role: "Directeur Technique, Orange Sénégal",
-        content: "Une expertise pointue et un accompagnement sur-mesure. Nous recommandons vivement !"
-      }
     ]
   },
   {
@@ -54,18 +42,6 @@ const SERVICES = [
       "Méthodes pédagogiques innovantes",
       "Accompagnement individuel",
       "Accès à des ressources exclusives"
-    ],
-    testimonials: [
-      {
-        name: "Fatou Ndiaye",
-        role: "Développeuse Web, Dakar",
-        content: "Grâce à la formation, j'ai pu évoluer rapidement dans ma carrière et décrocher un poste de rêve."
-      },
-      {
-        name: "Mamadou Ba",
-        role: "Administrateur Systèmes",
-        content: "Des contenus à jour, des formateurs à l'écoute et un vrai suivi après la formation."
-      }
     ]
   },
   {
@@ -85,18 +61,6 @@ const SERVICES = [
       "Accompagnement du changement",
       "Expertise sectorielle reconnue",
       "Confidentialité et éthique professionnelle"
-    ],
-    testimonials: [
-      {
-        name: "Awa Sarr",
-        role: "Directrice Générale, PME Sénégal",
-        content: "Le conseil reçu a permis à notre entreprise de franchir un cap dans sa digitalisation."
-      },
-      {
-        name: "Ibrahima Faye",
-        role: "Chef de projet IT",
-        content: "Une équipe très compétente, des solutions adaptées à nos besoins et un vrai suivi."
-      }
     ]
   },
   {
@@ -116,18 +80,6 @@ const SERVICES = [
       "Projets sur-mesure et innovants",
       "Accompagnement de A à Z",
       "Confidentialité et sécurité des données"
-    ],
-    testimonials: [
-      {
-        name: "Seynabou Diop",
-        role: "Data Scientist, Startup IA",
-        content: "L'intégration de l'IA a transformé notre façon de travailler et d'analyser les données."
-      },
-      {
-        name: "Cheikh Ndiaye",
-        role: "Responsable Innovation",
-        content: "Des solutions IA concrètes et un accompagnement très professionnel."
-      }
     ]
   }
 ];
@@ -167,19 +119,6 @@ const ServiceDetail = () => {
             ))}
           </div>
         </div>
-        {service.testimonials && service.testimonials.length > 0 && (
-          <div className="mt-8">
-            <h2 className="text-xl font-semibold text-iai-blue mb-4">Témoignages</h2>
-            <div className="space-y-4">
-              {service.testimonials.map((t, i) => (
-                <div key={i} className="bg-gray-50 p-4 rounded-xl border border-gray-200">
-                  <p className="text-gray-700 italic mb-2">"{t.content}"</p>
-                  <div className="text-sm text-gray-500 font-semibold">{t.name} <span className="font-normal">- {t.role}</span></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
       <Link to="/services" className="text-iai-blue underline">&larr; Retour aux services</Link>
     </div>
