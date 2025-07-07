@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
 import devImg from '../assets/dev.jpg';
 import formationImg from '../assets/formation.jpg';
 import conseilImg from '../assets/conseil.jpg';
@@ -100,10 +101,18 @@ const ServiceDetail = () => {
         <ul className="list-disc pl-6 mb-6">
           {service.details.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
-        <h2 className="text-xl font-semibold text-iai-blue mb-2 mt-6">Pourquoi choisir ce service ?</h2>
-        <ul className="list-disc pl-6 mb-6">
-          {service.advantages && service.advantages.map((adv, i) => <li key={i}>{adv}</li>)}
-        </ul>
+        <div className="mt-10 mb-8">
+          <h2 className="text-xl font-semibold text-iai-blue mb-4">Pourquoi choisir ce service&nbsp;?</h2>
+          <p className="text-gray-600 mb-6">Découvrez les atouts qui font la différence pour votre projet&nbsp;:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {service.advantages && service.advantages.map((adv, i) => (
+              <div key={i} className="flex items-start bg-iai-blue/5 rounded-xl p-4 shadow-sm">
+                <CheckCircle className="text-iai-blue mr-3 mt-1 flex-shrink-0" size={28} />
+                <span className="text-gray-800 text-base font-medium">{adv}</span>
+              </div>
+            ))}
+          </div>
+        </div>
         {service.testimonials && service.testimonials.length > 0 && (
           <div className="mt-8">
             <h2 className="text-xl font-semibold text-iai-blue mb-4">Témoignages</h2>
