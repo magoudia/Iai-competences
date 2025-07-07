@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Code, Users, Brain, Shield, Database, Smartphone, Cloud, Settings } from 'lucide-react';
 import devImg from '../assets/dev.jpg';
 import iaImg from '../assets/ia.jpg';
@@ -271,12 +272,12 @@ const Services = () => {
             Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons 
             vous accompagner dans votre transformation digitale.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/devis"
             className="bg-white text-iai-blue px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-block"
           >
             Demander un devis
-          </a>
+          </Link>
         </div>
       </section>
     </div>

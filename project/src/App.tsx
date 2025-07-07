@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import News from './pages/News';
 import InscriptionFormation from './pages/InscriptionFormation';
 import FormationDetail from './pages/FormationDetail';
+import Devis from './pages/Devis';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/inscription-formation" element={<InscriptionFormation />} />
             <Route path="/formation/:slug" element={<FormationDetail />} />
+            <Route path="/devis" element={<Devis />} />
           </Routes>
         </main>
         <Footer />
