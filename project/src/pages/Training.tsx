@@ -3,104 +3,7 @@ import { BookOpen, Award, Users, Clock, CheckCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Training = () => {
-  const programs = [
-    {
-      slug: 'developpement-web-full-stack',
-      title: "Développement Web Full-Stack",
-      duration: "6 mois",
-      level: "Débutant à Avancé",
-      certification: "Certifié",
-      description: "Formation complète en développement web moderne avec React, Node.js et bases de données",
-      modules: [
-        "HTML5, CSS3, JavaScript ES6+",
-        "React.js et écosystème",
-        "Node.js et Express",
-        "Bases de données (SQL/NoSQL)",
-        "Déploiement et DevOps"
-      ],
-      price: "750 000 FCFA"
-    },
-    {
-      slug: 'intelligence-artificielle-machine-learning',
-      title: "Intelligence Artificielle & Machine Learning",
-      duration: "4 mois",
-      level: "Intermédiaire",
-      certification: "Certifié",
-      description: "Maîtrisez les concepts et outils de l'IA pour créer des solutions intelligentes",
-      modules: [
-        "Fondamentaux de l'IA",
-        "Python pour l'IA",
-        "Machine Learning avec Scikit-learn",
-        "Deep Learning avec TensorFlow",
-        "Projets pratiques"
-      ],
-      price: "650 000 FCFA"
-    },
-    {
-      slug: 'cybersecurite-audit',
-      title: "Cybersécurité et Audit",
-      duration: "3 mois",
-      level: "Intermédiaire à Avancé",
-      certification: "Certifié",
-      description: "Formation spécialisée en sécurité informatique et audit de systèmes",
-      modules: [
-        "Fondamentaux de la sécurité",
-        "Tests de pénétration",
-        "Audit de sécurité",
-        "Gestion des incidents",
-        "Conformité et réglementation"
-      ],
-      price: "550 000 FCFA"
-    },
-    {
-      slug: 'administration-systemes-reseaux',
-      title: "Administration Systèmes et Réseaux",
-      duration: "4 mois",
-      level: "Débutant à Intermédiaire",
-      certification: "Certifié",
-      description: "Devenez expert en administration de systèmes Linux/Windows et réseaux",
-      modules: [
-        "Administration Linux/Windows",
-        "Configuration réseau",
-        "Virtualisation",
-        "Monitoring et supervision",
-        "Sécurité des infrastructures"
-      ],
-      price: "600 000 FCFA"
-    },
-    {
-      slug: 'gestion-projet-it',
-      title: "Gestion de Projet IT",
-      duration: "2 mois",
-      level: "Tous niveaux",
-      certification: "Certifié",
-      description: "Méthodologies agiles et gestion de projets informatiques",
-      modules: [
-        "Méthodologies Agile/Scrum",
-        "Planification de projet",
-        "Gestion d'équipe",
-        "Outils de gestion",
-        "Certification PMP/Scrum Master"
-      ],
-      price: "400 000 FCFA"
-    },
-    {
-      slug: 'cloud-computing-aws-azure',
-      title: "Cloud Computing (AWS/Azure)",
-      duration: "3 mois",
-      level: "Intermédiaire",
-      certification: "Certifié",
-      description: "Maîtrisez les plateformes cloud et l'architecture cloud native",
-      modules: [
-        "Fondamentaux du Cloud",
-        "Services AWS/Azure",
-        "Architecture cloud",
-        "DevOps et CI/CD",
-        "Sécurité cloud"
-      ],
-      price: "700 000 FCFA"
-    }
-  ];
+  const programs = [];
 
   const advantages = [
     {
@@ -206,71 +109,87 @@ const Training = () => {
       {/* Training Programs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nos Programmes de Formation
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choisissez parmi notre catalogue de formations adaptées aux besoins du marché
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                    {program.certification}
-                  </span>
-                  <span className="text-2xl font-bold text-blue-600">{program.price}</span>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{program.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Clock className="mr-2 text-blue-600" size={16} />
-                    Durée: {program.duration}
+          {programs.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {programs.map((program, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                      {program.certification}
+                    </span>
+                    <span className="text-2xl font-bold text-blue-600">{program.price}</span>
                   </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Users className="mr-2 text-blue-600" size={16} />
-                    Niveau: {program.level}
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{program.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Clock className="mr-2 text-blue-600" size={16} />
+                      Durée: {program.duration}
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Users className="mr-2 text-blue-600" size={16} />
+                      Niveau: {program.level}
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-900 mb-3">Modules inclus:</h4>
+                    <ul className="space-y-2">
+                      {program.modules.map((module, moduleIndex) => (
+                        <li key={moduleIndex} className="flex items-start text-sm text-gray-600">
+                          <CheckCircle className="mr-2 text-green-600 flex-shrink-0 mt-0.5" size={14} />
+                          {module}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-6 flex flex-col gap-2 items-center">
+                    <Link
+                      to={`/inscription-formation?formation=${encodeURIComponent(program.title)}`}
+                      className="inline-block bg-gradient-to-r from-iai-blue to-iai-red text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                    >
+                      S'inscrire
+                    </Link>
+                    <Link
+                      to={`/formation/${program.slug}`}
+                      className="inline-block border border-iai-blue text-iai-blue px-6 py-3 rounded-full font-semibold hover:bg-iai-blue hover:text-white transition-all duration-300"
+                    >
+                      En savoir plus
+                    </Link>
                   </div>
                 </div>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Modules inclus:</h4>
-                  <ul className="space-y-2">
-                    {program.modules.map((module, moduleIndex) => (
-                      <li key={moduleIndex} className="flex items-start text-sm text-gray-600">
-                        <CheckCircle className="mr-2 text-green-600 flex-shrink-0 mt-0.5" size={14} />
-                        {module}
-                      </li>
-                    ))}
-                  </ul>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
+                <div className="w-20 h-20 bg-gradient-to-br from-iai-blue to-iai-red rounded-full flex items-center justify-center mx-auto mb-6">
+                  <BookOpen className="text-white" size={40} />
                 </div>
-
-                <div className="mt-6 flex flex-col gap-2 items-center">
-                  <Link
-                    to={`/inscription-formation?formation=${encodeURIComponent(program.title)}`}
-                    className="inline-block bg-gradient-to-r from-iai-blue to-iai-red text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
-                  >
-                    S'inscrire
-                  </Link>
-                  <Link
-                    to={`/formation/${program.slug}`}
-                    className="inline-block border border-iai-blue text-iai-blue px-6 py-3 rounded-full font-semibold hover:bg-iai-blue hover:text-white transition-all duration-300"
-                  >
-                    En savoir plus
-                  </Link>
-                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Formations en cours de préparation</h3>
+                <p className="text-lg text-gray-600 mb-6">
+                  Notre équipe travaille actuellement sur l'élaboration de programmes de formation 
+                  de qualité adaptés aux besoins du marché. Nous mettons tout en œuvre pour vous 
+                  proposer des formations certifiantes et innovantes.
+                </p>
+                <p className="text-gray-600 mb-8">
+                  Restez connectés ! Nos formations seront bientôt disponibles.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-block bg-gradient-to-r from-iai-blue to-iai-red text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Nous contacter pour plus d'informations
+                </Link>
               </div>
-            ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 

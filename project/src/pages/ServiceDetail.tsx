@@ -27,24 +27,6 @@ const SERVICES = [
     ]
   },
   {
-    slug: 'formation-it',
-    title: 'Formation IT',
-    image: formationImg,
-    description: 'Programmes de formation certifiants et coaching pour développer vos compétences.',
-    details: [
-      "Formations certifiantes",
-      "Coaching personnalisé",
-      "Formateurs experts",
-      "Parcours adaptés à tous niveaux"
-    ],
-    advantages: [
-      "Formateurs certifiés et expérimentés",
-      "Méthodes pédagogiques innovantes",
-      "Accompagnement individuel",
-      "Accès à des ressources exclusives"
-    ]
-  },
-  {
     slug: 'conseil-si',
     title: 'Conseil en SI',
     image: conseilImg,

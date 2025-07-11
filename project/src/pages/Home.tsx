@@ -15,12 +15,6 @@ const Home = () => {
       slug: "developpement-logiciel"
     },
     {
-      image: formationImg,
-      title: "Formation IT",
-      description: "Programmes de formation certifiants et coaching",
-      slug: "formation-it"
-    },
-    {
       image: conseilImg,
       title: "Conseil en SI",
       description: "Expertise en systèmes d'information et transformation digitale",
