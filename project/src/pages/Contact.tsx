@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
-import emailjs from 'emailjs-com';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { contactService, emailService, EMAILJS_TEMPLATES } from '../services/api';
+import { useFormSubmission } from '../hooks/useFormSubmission';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,29 +11,29 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const { state, submitForm } = useFormSubmission();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    emailjs.send(
-      'service_gjy4jmr',
-      'template_alyjjrm',
-      {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company,
-        subject: formData.subject,
-        message: formData.message,
-      },
-      '-59ZpLNiQF9ncW5M8'
-    )
-    .then(() => {
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    
+    await submitForm(async () => {
+      try {
+        // Essayer d'abord l'API
+        await contactService.sendContactForm(formData);
+      } catch (apiError) {
+        // Fallback vers EmailJS si l'API échoue
+        await emailService.sendEmail(EMAILJS_TEMPLATES.CONTACT, {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          subject: formData.subject,
+          message: formData.message,
+        });
+      }
+      
+      // Reset du formulaire après succès
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
-    })
-    .catch(() => {
-      alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
     });
   };
 
@@ -126,13 +127,25 @@ const Contact = () => {
                 Envoyez-nous un message
               </h2>
               
-              {isSubmitted ? (
+              {state.isSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="mx-auto mb-4 text-green-600" size={64} />
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Message envoyé !</h3>
                   <p className="text-gray-600">
                     Nous vous répondrons dans les plus brefs délais.
                   </p>
+                </div>
+              ) : state.error ? (
+                <div className="text-center py-8">
+                  <AlertCircle className="mx-auto mb-4 text-red-600" size={64} />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Erreur d'envoi</h3>
+                  <p className="text-red-600 mb-4">{state.error}</p>
+                  <button
+                    onClick={() => window.location.reload()}
+                    className="bg-iai-blue text-white px-4 py-2 rounded-lg hover:bg-iai-red transition-colors"
+                  >
+                    Réessayer
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -221,10 +234,20 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-iai-blue to-iai-red text-white py-4 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center group"
+                    disabled={state.isSubmitting}
+                    className="w-full bg-gradient-to-r from-iai-blue to-iai-red text-white py-4 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="mr-2 group-hover:translate-x-1 transition-transform" size={20} />
-                    Envoyer le message
+                    {state.isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 group-hover:translate-x-1 transition-transform" size={20} />
+                        Envoyer le message
+                      </>
+                    )}
                   </button>
                 </form>
               )}
