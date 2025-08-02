@@ -117,5 +117,5 @@ export const emailService = {
 export const EMAILJS_TEMPLATES = {
   CONTACT: 'template_j785p7c', // Template contact spécifique
   FORMATION: 'template_95f2z3a', // Template formation existant
-  DEVIS: 'template_j785p7c' // Utilise le template contact pour les devis aussi
+  DEVIS: 'template_7s7lu1q' // Template devis spécifique
 }; 
