@@ -25,20 +25,15 @@ const Devis = () => {
     e.preventDefault();
     
     await submitForm(async () => {
-      try {
-        // Essayer d'abord l'API
-        await devisService.sendDevisForm(formData);
-      } catch (apiError) {
-        // Fallback vers EmailJS si l'API échoue
-        await emailService.sendEmail(EMAILJS_TEMPLATES.DEVIS, {
-          from_name: formData.nom,
-          from_email: formData.email,
-          telephone: formData.telephone,
-          entreprise: formData.entreprise,
-          service: formData.service,
-          details: formData.details,
-        });
-      }
+      // Utiliser directement EmailJS pour un meilleur affichage de l'expéditeur
+      await emailService.sendEmail(EMAILJS_TEMPLATES.DEVIS, {
+        from_name: formData.nom,
+        from_email: formData.email,
+        telephone: formData.telephone,
+        entreprise: formData.entreprise,
+        service: formData.service,
+        details: formData.details,
+      });
       
       // Reset du formulaire après succès
       setFormData({ nom: '', email: '', telephone: '', entreprise: '', service: '', details: '' });

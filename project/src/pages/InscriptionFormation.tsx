@@ -27,20 +27,15 @@ const InscriptionFormation = () => {
     e.preventDefault();
     
     await submitForm(async () => {
-      try {
-        // Essayer d'abord l'API
-        await formationService.sendFormationForm(formData);
-      } catch (apiError) {
-        // Fallback vers EmailJS si l'API échoue
-        await emailService.sendEmail(EMAILJS_TEMPLATES.FORMATION, {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone,
-          formation: formData.formation,
-          mode: formData.mode,
-          message: formData.message,
-        });
-      }
+      // Utiliser directement EmailJS pour un meilleur affichage de l'expéditeur
+      await emailService.sendEmail(EMAILJS_TEMPLATES.FORMATION, {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        formation: formData.formation,
+        mode: formData.mode,
+        message: formData.message,
+      });
       
       // Reset du formulaire après succès
       setFormData({ name: '', email: '', phone: '', formation: '', mode: '', message: '' });

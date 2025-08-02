@@ -18,19 +18,14 @@ const Contact = () => {
     e.preventDefault();
     
     await submitForm(async () => {
-      try {
-        // Essayer d'abord l'API
-        await contactService.sendContactForm(formData);
-      } catch (apiError) {
-        // Fallback vers EmailJS si l'API échoue
-        await emailService.sendEmail(EMAILJS_TEMPLATES.CONTACT, {
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company,
-          subject: formData.subject,
-          message: formData.message,
-        });
-      }
+      // Utiliser directement EmailJS pour un meilleur affichage de l'expéditeur
+      await emailService.sendEmail(EMAILJS_TEMPLATES.CONTACT, {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        subject: formData.subject,
+        message: formData.message,
+      });
       
       // Reset du formulaire après succès
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
