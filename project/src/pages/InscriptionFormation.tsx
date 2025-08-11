@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { formationService, emailService, EMAILJS_TEMPLATES } from '../services/api';
+import { formationService } from '../services/api';
 import { useFormSubmission } from '../hooks/useFormSubmission';
 
 const InscriptionFormation = () => {
@@ -27,17 +27,15 @@ const InscriptionFormation = () => {
     e.preventDefault();
     
     await submitForm(async () => {
-      // Utiliser directement EmailJS pour un meilleur affichage de l'expéditeur
-      await emailService.sendEmail(EMAILJS_TEMPLATES.FORMATION, {
-        from_name: formData.name,
-        from_email: formData.email,
+      await formationService.sendFormationForm({
+        name: formData.name,
+        email: formData.email,
         phone: formData.phone,
         formation: formData.formation,
         mode: formData.mode,
         message: formData.message,
       });
       
-      // Reset du formulaire après succès
       setFormData({ name: '', email: '', phone: '', formation: '', mode: '', message: '' });
     });
   };

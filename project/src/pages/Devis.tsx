@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { devisService, emailService, EMAILJS_TEMPLATES } from '../services/api';
+import { devisService } from '../services/api';
 import { useFormSubmission } from '../hooks/useFormSubmission';
 
 const Devis = () => {
@@ -25,17 +25,15 @@ const Devis = () => {
     e.preventDefault();
     
     await submitForm(async () => {
-      // Utiliser directement EmailJS pour un meilleur affichage de l'expéditeur
-      await emailService.sendEmail(EMAILJS_TEMPLATES.DEVIS, {
-        from_name: formData.nom,
-        from_email: formData.email,
+      await devisService.sendDevisForm({
+        nom: formData.nom,
+        email: formData.email,
         telephone: formData.telephone,
         entreprise: formData.entreprise,
         service: formData.service,
         details: formData.details,
       });
       
-      // Reset du formulaire après succès
       setFormData({ nom: '', email: '', telephone: '', entreprise: '', service: '', details: '' });
     });
   };

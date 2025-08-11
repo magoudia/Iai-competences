@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { contactService, emailService, EMAILJS_TEMPLATES } from '../services/api';
+import { contactService } from '../services/api';
 import { useFormSubmission } from '../hooks/useFormSubmission';
 
 const Contact = () => {
@@ -18,16 +18,14 @@ const Contact = () => {
     e.preventDefault();
     
     await submitForm(async () => {
-      // Utiliser directement EmailJS pour un meilleur affichage de l'expéditeur
-      await emailService.sendEmail(EMAILJS_TEMPLATES.CONTACT, {
-        from_name: formData.name,
-        from_email: formData.email,
+      await contactService.sendContactForm({
+        name: formData.name,
+        email: formData.email,
         company: formData.company,
         subject: formData.subject,
         message: formData.message,
       });
       
-      // Reset du formulaire après succès
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
     });
   };
